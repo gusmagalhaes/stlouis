@@ -1,0 +1,22 @@
+// Shared Wingsanity 2026 events with approximate coordinates for map
+export const events = [
+  { id: 1, title: "Wingsanity Dartmouth", city: "Dartmouth", location: "547 Portland St, Dartmouth, NS", dateShort: "JUN 1", href: "https://staging.admitone.com/events/city/community/food-drink/wingsanity-2026/MMUBY2", lat: 44.6653, lng: -63.5677 },
+  { id: 2, title: "Wingsanity Dieppe", city: "Dieppe", location: "Rue Kennedy, Dieppe, NB", dateShort: "JUN 1", href: "https://staging.admitone.com/events/city/community/food-drink/wingsanity-2026/HX15R4", lat: 46.09, lng: -64.6889 },
+  { id: 3, title: "Wingsanity Charlottetown", city: "Charlottetown", location: "167 Minna Jane Dr, Charlottetown, PE", dateShort: "JUN 1", href: "https://staging.admitone.com/events/city/community/food-drink/wingsanity-2026/NTKEC0", lat: 46.2382, lng: -63.1311 },
+  { id: 4, title: "Wingsanity Fredericton", city: "Fredericton", location: "711 Two Nations Crossing, Fredericton, NB", dateShort: "JUN 1", href: "https://staging.admitone.com/events/city/community/food-drink/wingsanity-2026/H06IB4", lat: 45.9636, lng: -66.6431 },
+  { id: 5, title: "Wingsanity Calgary", city: "Calgary", location: "2200 Na'a Common Southwest, Calgary, AB", dateShort: "JUN 1", href: "https://staging.admitone.com/events/city/community/food-drink/wingsanity-2026/NYF35J", lat: 51.0447, lng: -114.0719 },
+  { id: 6, title: "Wingsanity Edmonton", city: "Edmonton", location: "14222 28 Ave SW, Edmonton, AB", dateShort: "JUN 1", href: "https://staging.admitone.com/events/city/community/food-drink/wingsanity-2026/BE501X", lat: 53.5461, lng: -113.4938 },
+  { id: 7, title: "Wingsanity St. Albert", city: "St. Albert", location: "375 St Albert Trl, St. Albert, AB", dateShort: "JUN 1", href: "https://staging.admitone.com/events/city/community/food-drink/wingsanity-2026/6GMXHT", lat: 53.6304, lng: -113.6256 },
+  { id: 8, title: "Wingsanity Guelph", city: "Guelph", location: "202 Clair Rd E, Guelph, ON", dateShort: "JUN 1", href: "https://staging.admitone.com/events/city/community/food-drink/wingsanity-2026/KCKUYE", lat: 43.5448, lng: -80.2482 },
+  { id: 9, title: "Wingsanity Grande Prairie", city: "Grande Prairie", location: "10602 67th Ave, Grande Prairie, AB", dateShort: "JUN 1", href: "https://staging.admitone.com/events/city/community/food-drink/wingsanity-2026/NNKHSB", lat: 55.1699, lng: -118.7976 },
+  { id: 10, title: "Wingsanity Sault Ste. Marie", city: "Sault Ste. Marie", location: "293 Bay Street, Sault Ste. Marie, ON", dateShort: "JUN 1", href: "https://staging.admitone.com/events/city/community/food-drink/wingsanity-2026/VHX7N3", lat: 46.4953, lng: -84.3453 },
+  { id: 11, title: "Wingsanity Sudbury", city: "Sudbury", location: "1835 Regent Street, Sudbury, ON", dateShort: "JUN 1", href: "https://staging.admitone.com/events/city/community/food-drink/wingsanity-2026/56J8R7", lat: 46.4927, lng: -80.9912 },
+  { id: 12, title: "Wingsanity North Bay", city: "North Bay", location: "850 McKeown Avenue, North Bay, ON", dateShort: "JUN 1", href: "https://staging.admitone.com/events/city/community/food-drink/wingsanity-2026/TXJE7Q", lat: 46.3092, lng: -79.4606 },
+  { id: 13, title: "Wingsanity Barrie", city: "Barrie", location: "353 Duckworth Street, Barrie, ON", dateShort: "JUN 1", href: "https://staging.admitone.com/events/city/community/food-drink/wingsanity-2026/ZFLCSU", lat: 44.3894, lng: -79.6903 },
+  { id: 14, title: "Wingsanity Toronto (Bay St)", city: "Toronto", location: "595 Bay Street, Toronto, ON", dateShort: "JUN 1", href: "https://staging.admitone.com/events/city/community/food-drink/wingsanity-2026/S84PYG", lat: 43.6564, lng: -79.3826 },
+  { id: 15, title: "Wingsanity Toronto (Yonge St)", city: "Toronto", location: "2050 Yonge St, Toronto, ON", dateShort: "JUN 1", href: "https://staging.admitone.com/events/city/community/food-drink/wingsanity-2026/ZETNEJ", lat: 43.7022, lng: -79.3915 },
+  { id: 16, title: "Wingsanity Toronto (Bloor St)", city: "Toronto", location: "376 Bloor St W, Toronto, ON", dateShort: "JUN 1", href: "https://staging.admitone.com/events/city/community/food-drink/wingsanity-2026/HNR8C3", lat: 43.667, lng: -79.4062 },
+  { id: 17, title: "Wingsanity North York", city: "North York", location: "808 York Mills Rd, North York, Toronto, ON", dateShort: "JUN 1", href: "https://staging.admitone.com/events/city/community/food-drink/wingsanity-2026/XYC0VP", lat: 43.75361, lng: -79.35895 },
+];
+
+export const cities = ["All Cities", ...new Set(events.map((e) => e.city).sort())];

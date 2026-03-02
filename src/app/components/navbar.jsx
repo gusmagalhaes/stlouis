@@ -3,7 +3,8 @@ import Link from "next/link";
 
 const navLinks = [
   { label: "MENU", href: "#menu" },
-  { label: "FIND US", href: "#find-us" },
+  { label: "FIND US", href: "/" },
+  { label: "WINGSANITY", href: "/landing" },
   { label: "FRANCHISING", href: "#franchising" },
   { label: "GIFT CARDS", href: "#gift-cards" },
 ];

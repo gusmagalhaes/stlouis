@@ -1,18 +1,10 @@
-"use client";
-
 import Link from "next/link";
-import dynamic from "next/dynamic";
-import { events, cities } from "./data/events";
+import EventsSection from "../components/events-section";
+import { events, cities } from "../data/events";
 
-const EventsLocator = dynamic(
-  () => import("./components/events-locator"),
-  { ssr: false }
-);
-
-export default function Home() {
+export default function LandingPage() {
   return (
     <>
-      {/* Wingsanity hero - same as landing */}
       <section
         className="relative text-white text-center py-20 px-6"
         style={{
@@ -29,12 +21,15 @@ export default function Home() {
         </p>
       </section>
 
-      {/* Event cards + map */}
-      <section className="bg-[#ffd100] px-4 py-8">
-        <EventsLocator events={events} cities={cities} />
+      <section className="bg-[#ffd100] px-6 pb-16 pt-12">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-black text-center uppercase text-[#1a1547] mb-12 mt-6">
+            Get ready for wing madness.
+          </h2>
+          <EventsSection events={events} cities={cities} />
+        </div>
       </section>
 
-      {/* Footer - same as landing */}
       <section
         className="text-white text-center py-16 px-6"
         style={{
