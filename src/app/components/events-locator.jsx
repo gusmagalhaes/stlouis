@@ -5,39 +5,10 @@ import Link from "next/link";
 import Image from "next/image";
 import EventsMap from "./events-map";
 
-function distanceKm(a, b) {
-  const R = 6371;
-  const dLat = ((b.lat - a.lat) * Math.PI) / 180;
-  const dLng = ((b.lng - a.lng) * Math.PI) / 180;
-  const lat1 = (a.lat * Math.PI) / 180;
-  const lat2 = (b.lat * Math.PI) / 180;
-  const x =
-    Math.sin(dLat / 2) ** 2 +
-    Math.sin(dLng / 2) ** 2 * Math.cos(lat1) * Math.cos(lat2);
-  const d = 2 * Math.atan2(Math.sqrt(x), Math.sqrt(1 - x));
-  return R * d;
-}
-
 export default function EventsLocator({ events, cities }) {
   const [search, setSearch] = useState("");
   const [selectedCity, setSelectedCity] = useState("All Cities");
-  const [sortMode, setSortMode] = useState("default");
-  const [userLocation, setUserLocation] = useState(null);
   const [selectedId, setSelectedId] = useState(events[0]?.id ?? null);
-
-  const handleNearMe = () => {
-    if (!navigator.geolocation) return;
-    navigator.geolocation.getCurrentPosition(
-      (pos) => {
-        setUserLocation({
-          lat: pos.coords.latitude,
-          lng: pos.coords.longitude,
-        });
-        setSortMode("nearby");
-      },
-      () => setSortMode("default")
-    );
-  };
 
   const filteredEvents = useMemo(() => {
     const q = search.toLowerCase();
@@ -50,13 +21,8 @@ export default function EventsLocator({ events, cities }) {
     if (selectedCity !== "All Cities") {
       res = res.filter((e) => e.city === selectedCity);
     }
-    if (sortMode === "nearby" && userLocation) {
-      res = [...res].sort(
-        (a, b) => distanceKm(userLocation, a) - distanceKm(userLocation, b)
-      );
-    }
     return res;
-  }, [search, selectedCity, sortMode, userLocation, events]);
+  }, [search, selectedCity, events]);
 
   const selectedEvent =
     filteredEvents.find((e) => e.id === selectedId) ?? filteredEvents[0];
@@ -73,13 +39,6 @@ export default function EventsLocator({ events, cities }) {
               onChange={(e) => setSearch(e.target.value)}
               className="flex-1 min-w-[140px] px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-[#e41e2b]"
             />
-            <button
-              type="button"
-              onClick={handleNearMe}
-              className="px-3 py-2 border border-gray-300 rounded-md text-xs font-semibold bg-white hover:bg-gray-50"
-            >
-              Near Me
-            </button>
             <select
               value={selectedCity}
               onChange={(e) => setSelectedCity(e.target.value)}
@@ -156,7 +115,6 @@ export default function EventsLocator({ events, cities }) {
         <EventsMap
           events={filteredEvents}
           selectedEvent={selectedEvent}
-          userLocation={userLocation}
         />
       </section>
     </main>
