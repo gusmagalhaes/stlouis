@@ -63,10 +63,10 @@ export default function EventsLocator({ events, cities }) {
               onKeyDown={(e) => {
                 if (e.key === "Enter" || e.key === " ") setSelectedId(event.id);
               }}
-              className={`flex h-[200px] bg-[#f0f0f0] rounded-xl overflow-hidden cursor-pointer transition-all duration-200 shadow hover:shadow-md ${
+              className={`flex h-[200px] bg-[#f0f0f0] rounded-xl overflow-hidden cursor-pointer transition-all duration-200 shadow hover:shadow-md border-[5px] ${
                 selectedEvent && event.id === selectedEvent.id
-                  ? "ring-2 ring-[#e41e2b] shadow-lg"
-                  : ""
+                  ? "border-[#e41e2b] shadow-lg"
+                  : "border-transparent"
               }`}
             >
               <div className="w-1/2 min-h-[140px] shrink-0 relative overflow-hidden bg-gray-200">
